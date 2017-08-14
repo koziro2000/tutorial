@@ -1,0 +1,1 @@
+draw_sprite_ext(s_solid_move, 0, x, y, dir, 1, 0, c_white, 1);
