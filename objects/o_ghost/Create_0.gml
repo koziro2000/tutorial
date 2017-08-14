@@ -1,7 +1,7 @@
 hsp = 0;
 vsp = 0;
 grv = 0;
-move_speed = 2;
+move_speed = 1.5;
 dir = 1;
 _state = obj_state._move;
 
