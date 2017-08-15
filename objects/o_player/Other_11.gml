@@ -1,9 +1,14 @@
 var move = key_right - key_left;
 hsp = move_speed * move;
-
+image_speed = 0.6;
 if (move <> 0)
 {
+	sprite_index = s_player_run;
 	image_xscale = move;
+}
+else
+{
+	sprite_index = s_player;	
 }
 
 if (vsp < 10) vsp += grv;
@@ -13,15 +18,19 @@ if (place_meeting(x, y+1, o_solid_parent))
 	remaining_jump = max_jumps;
 }
 
-if (key_jump) && (remaining_jump > 0)
-{
-	remaining_jump -= 1;
-	vsp = -jump_speed * 0.8;
-}
 
-if (key_jump) && (place_meeting(x + sign(hsp), y, o_solid))
+if (key_jump)
 {
-	vsp = -jump_speed;
+	if (key_jump) && (remaining_jump > 0)
+	{
+		remaining_jump -= 1;
+		vsp = -jump_speed * 0.8;
+	}
+
+	if (key_jump) && (place_meeting(x + sign(hsp), y, o_solid))
+	{
+		vsp = -jump_speed;
+	}
 }
 
 var hsp_final = hsp + hsp_carry;
